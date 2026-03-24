@@ -1,0 +1,31 @@
+<div class="topnav">
+    <a  routerLink="../adminindex">Admin pocetna</a>
+    <a class="active" routerLink="adminregistrations">Zahtevi za registracijom</a>
+    <a class="logout" routerLink="../adminlogin" (click)="go()">Izloguj se</a>
+</div>
+<br/>
+<br/>
+<div>
+    <h4>Zahtevi za registraciju</h4> 
+    <table>  
+        <tr>
+            @for(req of allRegReq;track req.username){
+                <td>
+                    Username: <input type="text" value="{{req.username}}" > <br/>
+                    Password: <input type="text" value="{{req.password}}" > <br/>
+                    Ime: <input type="text" value="{{req.firstname}}" > <br/>
+                    Prezime: <input type="text" value="{{req.lastname}}" > <br/>
+                    Pol: <input type="text" value="{{req.gender}}" > <br/>
+                    Adresa: <input type="text" value="{{req.address}}"> <br/>
+                    Telefon: <input type="text" value="{{req.phone}}" > <br/>
+                    Email: <input type="text" value="{{req.email}}" > <br/>
+                    Profilna slika: <input type="text" value="{{req.pfp}}"> <br/>
+                    Kartica: <input type="text" value="{{req.credit}}" > <br/>
+                    <button (click)="accept(req.username)">Prihvati</button> <button (click)="decline(req.username)">Odbij</button> <br/>
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+
+<footer>Admin {{user}} page</footer>
