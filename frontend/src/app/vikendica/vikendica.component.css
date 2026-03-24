@@ -1,0 +1,36 @@
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+}
+table{
+    text-align: center;
+    margin: auto;
+    width: 50%;
+}
+tr{
+    padding: 2%;
+    background-color: burlywood;
+}
+th{
+    text-decoration: solid;
+    background-color: burlywood;
+}
+td{
+    padding: 20px 20px;
+}
+div{
+    margin: auto;
+    display: block;
+}
+.x{
+    margin: auto;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}

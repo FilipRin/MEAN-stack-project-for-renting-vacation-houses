@@ -1,0 +1,68 @@
+<div [style.display]="disp" class="x">
+    <table border="1">
+    <th>
+        <h4>Info o vikendici {{vik.name}} </h4>
+    </th>
+    <tr>
+        <td>
+            Place: {{vik.place}} <br/>
+            Services: <textarea>{{vik.services}}</textarea> <br/>
+            Summer price: {{vik.prices[0]}} | Winter price: {{vik.prices[1]}} <br/>
+            Phone number: {{vik.phone}} <br/>
+            Coordinates: {{vik.coordinates}} <br/>
+            <img src="{{vik.pictures}}" alt="" class="pic"> <br/>
+            
+            @for(feed of feedbacks;track $index){
+                <hr/>
+                Turista: {{feed.tourist}} <br/>
+                Komentar: <textarea>{{feed.comment}}</textarea><br/>
+                Ocena: {{feed.rating}} <br/>
+            }
+        </td>
+    </tr>
+    </table>
+    <hr>
+    Broj posetilaca(odrasli): <input type="text" [(ngModel)]="numVis"> |
+    Broj posetilaca(deca): <input type="text" [(ngModel)]="numChild">
+    <br/>
+    <form [formGroup]="dateForm">
+        Datum od: <input type="date" formControlName="start" [(ngModel)]="sdstr">
+        <br/>
+        Datum do: <input type="date" formControlName="end" [(ngModel)]="edstr">
+    </form>
+    <br/>
+    <button (click)="reserve()">Rezervisi</button>
+    <br/>
+    <span>{{message}}</span>
+    <hr/>
+</div>
+
+<div [style.display]="dispPay">
+    <table border="1">
+        <th>
+            <h2>Vikendica {{vik.name}} </h2>
+        </th>
+        <tr>
+            <td>
+                Datum pocetka odsedanja: {{startDate}} <br/>
+                Datum kraja odsedanja: {{endDate}} <br/>
+                Broj odraslih: {{numVis}}<br/>
+                Broj dece: {{numChild}} <br/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Broj kartice korisnika {{user}} <input type="text" [value]="us.credit" [(ngModel)]="cred"><br/>
+                <textarea readonly>Ukupna cena: {{cost}} eur</textarea> <br/>
+                <textarea name="" id="" maxlength="500" cols="40" rows="15" [(ngModel)]="reqq"></textarea><br/>
+                <button (click)="validate()">Validacija i rezervisi</button>
+                <br/>
+                <span>{{message}}</span>
+            </td>
+        </tr>
+        </table>
+
+</div>
+<div class="x"><button (click)="go()">Nazad na stranicu Vikendice</button></div>
+
+<footer>Info o vikendici {{vik.name}}</footer>
