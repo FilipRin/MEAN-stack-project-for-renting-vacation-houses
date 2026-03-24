@@ -1,0 +1,14 @@
+<div class="x">
+Korisnicko ime: <input type="text" [(ngModel)]="username">
+<br/>
+Lozinka: <input type="password" [(ngModel)]="password">
+<br/>
+Tip: <select [(ngModel)]="type">
+    <option value="tourist">Tourist</option>
+    <option value="landlord">Landlord</option>
+</select>
+<button (click)="login()">Login</button>
+<span>{{message}}</span>
+<hr/>
+<a routerLink="../register">Register</a>
+</div>
