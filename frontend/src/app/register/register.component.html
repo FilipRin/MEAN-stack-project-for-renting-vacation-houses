@@ -1,0 +1,98 @@
+<div class="x">
+Korisnicko ime: <input type="text" [(ngModel)]="user.username">
+<br/>
+Lozinka: <input size="30" type="password" id="pass" [(ngModel)]="user.password" placeholder="6-10 characters; at least 1 uppercase letter, 3 lowercase letters,1 number, 1 special sign and must start with letter"> <button (click)="testPass()">Check password</button>
+{{messagePass}}
+<br/>
+Ime: <input type="text" [(ngModel)]="user.firstname">
+<br/>
+Prezime: <input type="text" [(ngModel)]="user.lastname">
+<br/>
+Pol: <select [(ngModel)]="user.gender">
+    <option value="m">M</option>
+    <option value="z">Z</option>
+</select>
+<br/>
+Adresa: <input type="text" [(ngModel)]="user.address">
+<br/>
+Telefon: <input type="tel" [(ngModel)]="user.phone" placeholder="381... or 06... no spaces between numbers">
+<br/>
+E-mail: <input type="email" [(ngModel)]="user.email">
+<br/>
+Slika: <input type="text" [(ngModel)]="user.pfp">
+<br/>
+Kreditna kartica: <input type="tel" id="card" [(ngModel)]="user.credit" minlength="15" maxlength="16"> <button (click)="testCard()">Check credit card</button>
+<br/>
+<button id="register" (click)="register()" [disabled]="btnDis">Register</button>
+{{message}}
+<hr/>
+<a routerLink="/login">Back</a>
+</div>
+<script>
+
+    let passGood=false;
+
+    $(document).ready(function (){
+        $("#register").prop("disabled", true);
+    });
+
+    function testPass(){
+        var inputPass = $("#pass").val();
+        const regex = /[a-z]/g;
+        const matches = inputPass.match(regex);
+        matches.forEach(element => {
+            console.log("malo slovo: "+ element);
+        });
+        if(inputPass.length<6 || inputPass.length>10){
+            console.log("Password should be between 6-10 characters long!");
+            return;
+        }
+        var reg = [/^[a-zA-Z]/,/[A-Z]/,/[0-9]/,/[(!@#$%&]/];
+        var count = 0;
+        for (var i = 0; i < reg.length;i++) {
+            if (reg[i].test(inputPass)) {
+                count++;
+            }
+            if (count ==4) {
+                if(matches.length>=3){
+                    passGood=true;
+                    return;
+                }
+            }
+        }
+        passGood=false;
+        return;
+    }
+
+    function testCard(){
+        var inputCard = $("#card").val();
+        if(inputCard.length()<15 || inputCard.length()>16) {
+            console.log("Card number should be 15 or 16 numbers long!");
+            return;
+        }
+        const DinersPattern1=/^300/.test(inputCard),DinersPattern2=/^301/.test(inputCard),DinersPattern3=/^302/.test(inputCard),DinersPattern4=/^303/.test(inputCard),DinersPattern5=/^36/.test(inputCard),DinersPattern6=/^38/.test(inputCard);
+        if(DinersPattern1 || DinersPattern2 || DinersPattern3 || DinersPattern4 || DinersPattern5 || DinersPattern6){
+            console.log("Diners card");
+            if(passGood){
+                $("#register").prop("disabled",false);
+            }
+            return;
+        }
+        const MasterPattern1=/^51/.test(inputCard),MasterPattern2=/^52/.test(inputCard),MasterPattern3=/^53/.test(inputCard),MasterPattern4=/^54/.test(inputCard),MasterPattern5=/^55/.test(inputCard);
+        if(MasterPattern1 || MasterPattern2 || MasterPattern3 || MasterPattern4 || MasterPattern5){
+            console.log("Masters card");
+            if(passGood){
+                $("#register").prop("disabled",false);
+            }
+            return;
+        }
+        const VisaPattern1=/^4539/.test(inputCard),VisaPattern2=/^4556/.test(inputCard),VisaPattern3=/^4916/.test(inputCard),VisaPattern4=/^4532/.test(inputCard),VisaPattern5=/^4929/.test(inputCard),VisaPattern6=/^4485/.test(inputCard),VisaPattern7=/^4716/.test(inputCard);
+        if(VisaPattern1 || VisaPattern2 || VisaPattern3 || VisaPattern4 || VisaPattern5 || VisaPattern6 || VisaPattern7){
+            console.log("Visa card");
+            if(passGood){
+                $("#register").prop("disabled",false);
+            }
+            return;
+        }
+    }
+</script>
