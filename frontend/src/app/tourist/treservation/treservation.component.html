@@ -1,0 +1,70 @@
+
+<div class="topnav">
+    <a routerLink="../">Profil</a>
+    <a routerLink="../tvikendice">Vikendice</a>
+    <a class="active"  routerLink="treservation">Rezervacije</a>
+</div>
+<br/>
+<div>
+    <h4>Aktivne rezervacije</h4>
+    <br/>
+    <table border="1">
+        <tr>
+        @for(res of activeRes;track res.requests){
+            <td>
+                Pocetak rezervacije: {{res.dateStart}}<br/>
+                Kraj rezervacije: {{res.dateEnd}}<br/>
+                Naziv vikendice: {{res.vikendica}}<br/>
+                Mesto vikendice: {{res.place}}<br/>
+                <button (click)="cancelRes(res.place,res.vikendica,res.dateStart,res.dateEnd)">Otkazi</button>
+            </td>
+        }
+        </tr>
+    </table>
+    <span class="msg">{{message}}</span>
+    <hr/>
+    <h4>Arhivirane rezervacije</h4>
+    <br/>
+    <table border="1">
+        <tr>
+        @for(res of archivedRes;track res.requests){
+            <td>
+                Pocetak rezervacije: {{res.dateStart}}<br/>
+                Kraj rezervacije: {{res.dateEnd}}<br/>
+                Naziv vikendice: {{res.vikendica}}<br/>
+                Mesto vikendice: {{res.place}}<br/>
+                <button (click)="showForm(res.vikendica,res.place,res.dateStart,res.dateEnd)">Oceni</button>
+                
+                <!--
+                    <span (click)="selectRating(star)" [ngClass]="{'selected': rs <= currentRating}">&#9733;</span>
+                <div class="star-rating">
+                    <span *ngFor="let star of stars" 
+                            (click)="selectRating(star)" 
+                            [ngClass]="{'selected': star <= currentRating}">
+                        &#9733; ★
+                    </span>
+                </div>-->
+            </td>
+        }
+        </tr>
+    </table>
+    <div class="cent" [style.display]="dispRate">
+    <p>Oceni {{rateVik}} u periodu {{rateDateStart}}-{{rateDateEnd}}</p>
+    @for(rs of rateStars;track $index){
+                    
+        <span class="star {{ getStarClass($index) }}" id="stt" (click)="selectRating(rs)">&#9733;</span>
+    }
+    
+    <p class="st">{{currentRating}}</p>
+    Komentar: <input type="text" [(ngModel)]="kom">
+    <button (click)="rate()">Posaljite</button>
+    <span>{{message2}}</span>
+    </div>
+</div>
+
+
+
+
+
+
+<footer>Turista {{user}} - Rezervacije page</footer>

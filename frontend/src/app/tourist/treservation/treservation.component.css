@@ -1,0 +1,117 @@
+.info p,button {
+    text-align: center;
+    
+}
+button {
+    margin: auto;
+    display: block;
+}
+.info{
+    background-color: bisque;
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+.topnav a {
+    display: inline-block;
+    float: none;
+    color: #050505;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: solid;
+    font-size: 17px;
+    background-color: rgb(24, 90, 112);
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #989b11;
+    color: white;
+  }
+table{
+    text-align: center;
+    margin: auto;
+    
+}
+td{
+    padding: 2%;
+    background-color: burlywood;
+}
+td a{
+    display: block;
+    float: none;
+    margin: auto;
+    width: 50%;
+    color: #050505;
+    text-align: center;
+    text-decoration: solid;
+    font-size: 17px;
+    background-color: rgb(24, 90, 112);
+}
+td a:hover{
+    background-color: #ddd;
+    color: black;
+}
+footer{
+    
+    position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: bisque;
+  color: black;
+  text-align: center;
+}
+
+.content{
+    height:100%;
+    width: 100%;
+}
+
+h4{
+    display: block;
+    float: none;
+    margin: auto;
+    text-align: center;
+}
+.msg{
+    display: block;
+    float: none;
+    margin: auto;
+    text-align: center;
+}
+.star-rating {
+    font-size: 5em; 
+    color: #ccc; 
+  }
+  
+  .star.full-star {
+    color: gold;
+  }
+  
+  .star.half-star {
+    color: gold; 
+  }
+
+  .st{
+    display: block;
+    float: none;
+    margin: auto;
+    text-align: center;
+    font-size: 3em;
+  }
+  #stt{
+    
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+  }
+  .cent{
+    text-align: center;
+  }
