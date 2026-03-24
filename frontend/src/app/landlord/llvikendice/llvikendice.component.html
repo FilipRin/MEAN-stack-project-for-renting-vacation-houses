@@ -1,0 +1,45 @@
+<div class="topnav">
+    <a  routerLink="../">Profil</a>
+    <a  routerLink="../llreservation">Rezervacije</a>
+    <a class="active" routerLink="llvikendice">Moje vikendice</a>
+    <a routerLink="Stats">Statistika</a>
+</div>
+<div class="x">
+<br/>
+Name: <input type="text" [(ngModel)]="vik.name" required>
+<br/>
+Place: <input type="text" [(ngModel)]="vik.place" required> 
+<br/>
+Services: <input type="text" [(ngModel)]="vik.services" required>
+<br/>
+Prices: <input type="text" [(ngModel)]="vik.prices" placeholder="Uneti dva iznosa odvojena zarezom npr 40,60" required>
+<br/>
+Phone: <input type="tel" [(ngModel)]="vik.phone" placeholder="381... or 06... no spaces between numbers" required>
+<br/>
+Coordinates: <input type="text" [(ngModel)]="vik.coordinates" required>
+<br/>
+Picture: <input type="text" [(ngModel)]="vik.pictures" required>  <!--<input type="file" >-->
+<br/>
+<button (click)="addVikendicu()">Dodaj vikendicu</button>
+{{message}}
+
+</div>
+<hr/>
+<table>
+<th><h4>Moje vikendice</h4></th>
+@for (vik of myVikendice;track vik.name){
+    <tr>
+    <td>
+        Naziv:<b> {{vik.name}} </b><br/>
+        Mesto: {{vik.place}} <br/>
+        Zahtevi: <textarea minlength="200">{{vik.services}}</textarea> <br/>
+        Letnje cene: {{vik.prices[0]}} | Zimske cene: {{vik.prices[1]}} <br/>
+        Telefon: {{vik.phone}} <br/>
+        Koordinate: {{vik.coordinates}} <br/>
+        <img src="{{vik.pictures}}" alt=""> <br/>
+        <button (click)="deleteVikendicu(vik.coordinates)">Delete</button>
+    </td>
+    </tr>
+}
+</table>
+<footer>Vlasnik {{user.username}} - Profile page</footer>
