@@ -1,0 +1,31 @@
+<div class="topnav">
+    <a  routerLink="../">Profil</a>
+    <a class="active" routerLink="llreservation">Rezervacije</a>
+    <a routerLink="../llvikendice">Moje vikendice</a>
+    <a routerLink="Stats">Statistika</a>
+</div>
+<br/>
+<div>
+<table>
+<th><h4>Moje neobradjene rezervacije</h4></th>
+
+@for (rez of myRezervacije;track rez.requests){
+    <tr>
+    <td>
+    <div class="x">
+        Pocetak rezervacije: {{rez.dateStart}}<br/>
+        Kraj rezervacije: {{rez.dateEnd}}<br/>
+        Naziv vikendice: {{rez.vikendica}}<br/>
+        Mesto vikendice: {{rez.place}}<br/>
+        <button (click)="accept(rez.place,rez.vikendica,rez.dateStart,rez.dateEnd)">Potvrdi</button> | <button (click)="decline(rez.place,rez.vikendica,rez.dateStart,rez.dateEnd)">Odbij</button>
+    </div>
+    </td>
+    </tr>
+}
+</table>
+<p>{{message}}</p>
+</div>
+<hr/>
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<footer>Vlasnik {{user.username}} - Profile page</footer>

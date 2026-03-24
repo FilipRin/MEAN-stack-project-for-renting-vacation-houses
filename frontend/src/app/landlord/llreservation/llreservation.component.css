@@ -1,0 +1,84 @@
+.topnav a {
+    float: none;
+    color: #050505;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: solid;
+    font-size: 17px;
+    background-color: rgb(24, 90, 112);
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #989b11;
+    color: white;
+  }
+
+  .TProfile {
+    margin-top: 1%;
+    border: 1px outset rgb(0, 0, 0);
+    background-color: lightblue;
+    text-align: center;
+    padding: 3px;
+  } 
+  footer{
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+  }
+
+  .content{
+    height:100%;
+    width: 100%;
+}
+
+h4{
+    display: block;
+    float: none;
+    margin: auto;
+    text-align: center;
+}
+.x{
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+    background-color: burlywood;
+    width: 50%;
+    display: block;
+    float: none;
+}
+table{
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    
+}
+td{
+    padding: 2%;
+    background-color: burlywood;
+}
+th{
+    text-decoration: solid;
+    background-color: burlywood;
+}
+p{
+  width:50%;
+  text-align: center;
+  margin: auto;
+}
+full-calendar{
+  width:60%;
+  margin: auto;
+  text-align: center;
+}
