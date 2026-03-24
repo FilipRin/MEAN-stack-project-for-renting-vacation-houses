@@ -1,0 +1,13 @@
+
+<h1 mat-dialog-title>{{ data.event.title }}</h1>
+<div mat-dialog-content>
+    <p><strong>Date:</strong> {{ dateStart }}  -  {{dateEnd}}</p>
+    <p><strong>Requests:</strong> {{ data.event.extendedProps.requests }}</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="closePopup()">Zatvori</button>
+    @if(!data.event.extendedProps.active){
+        <button mat-button (click)="acceptPopup()">Potvrdi</button>
+        <button mat-button (click)="denyPopup()">Odbij</button>
+    }
+</div>
