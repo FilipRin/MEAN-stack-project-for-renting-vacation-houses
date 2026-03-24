@@ -1,0 +1,47 @@
+<div class="topnav">
+    <a routerLink="../">Profil</a>
+    <a class="active" routerLink="tvikendice">Vikendice</a>
+    <a routerLink="../treservation">Rezervacije</a>
+</div>
+<div class="info">
+    <p>Pretraga po nazivu vikendice: <input type="text" [(ngModel)]="nameSearch"></p>
+    <p>Pretraga po mestu/lokaciji vikendice: <input type="text" [(ngModel)]="placeSearch"></p>
+
+    <button (click)="search()" >Pretrazi</button>
+
+    <p>Sortiraj pretragu po nazivu : <select [(ngModel)]="srtype">
+        <option value="asc">Neopadajuce</option>
+        <option value="desc">Nerastuce</option>
+    </select></p>
+    <button (click)="sort()">Sort</button>
+
+    <p>Sortiraj pretragu po mestu/lokaciji : <select [(ngModel)]="srtype2">
+        <option value="asc">Neopadajuce</option>
+        <option value="desc">Nerastuce</option>
+    </select></p>
+    <button (click)="sort2()">Sort</button>
+
+</div>
+<hr>
+<div>
+    <table border="1">
+        <tr>
+        @for(vik of searchedVik;track vik.name){
+            <td>
+                <a (click)="go(vik.name,vik.place)"><h4> {{vik.name}} </h4></a>
+                Mesto: {{vik.place}} <br/>
+                Usloge : <textarea>{{vik.services}}</textarea> <br/>
+                Letnje cene: {{vik.prices[0]}} | Zimske cene: {{vik.prices[1]}} <br/>
+                Telefon: {{vik.phone}} <br/>
+                Koordinate: {{vik.coordinates}} <br/>
+                <img src="{{vik.pictures}}" alt="" class="pic"> <br/>
+                Prosecna ocena: {{rrr.get(vik.name)}} <br/>
+                @for(rs of rateStars;track $index){
+                    <span class="star {{ getStarClass($index,vik.name) }}" id="stt">&#9733;</span>
+                }
+            </td>
+        }
+        </tr>
+    </table>
+</div>
+<footer>Turista {{user}} - Vikendice page</footer>
