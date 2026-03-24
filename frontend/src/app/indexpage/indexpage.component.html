@@ -1,0 +1,53 @@
+
+<div class="content">
+<div class="topnav">
+    <a routerLink="login">Login</a>
+</div>
+<div class="info">
+    <p>Ukupni br vikendica u sistemu: {{vikNum}}</p>
+
+    <p>Ukupni br vlasnika u sistemu: {{llNum}}</p>
+
+
+    <p>Ukupni br turista u sistemu: {{tourNum}}</p>
+
+    <p>Br rez vikendica u 24h/7d/30d</p>
+
+    <p>Pretraga po nazivu vikendice: <input type="text" [(ngModel)]="nameSearch"></p>
+    <p>Pretraga po mestu/lokaciji vikendice: <input type="text" [(ngModel)]="placeSearch"></p>
+
+    <button (click)="search()" >Pretrazi</button>
+
+    <p>Sortiraj pretragu po nazivu : <select [(ngModel)]="srtype">
+        <option value="asc">Neopadajuce</option>
+        <option value="desc">Nerastuce</option>
+    </select></p>
+    <button (click)="sort()">Sort</button>
+
+    <p>Sortiraj pretragu po mestu/lokaciji : <select [(ngModel)]="srtype2">
+        <option value="asc">Neopadajuce</option>
+        <option value="desc">Nerastuce</option>
+    </select></p>
+    <button (click)="sort2()">Sort</button>
+
+</div>
+<hr>
+<div>
+    <table border="1">
+        <tr>
+        @for(vik of searchedVik;track vik.name){
+            <td>
+                <h4> {{vik.name}} </h4>
+                Place: {{vik.place}} <br/>
+                Services: <textarea>{{vik.services}}</textarea> <br/>
+                Summer price: {{vik.prices[0]}} | Winter price: {{vik.prices[1]}} <br/>
+                Phone number: {{vik.phone}} <br/>
+                Coordinates: {{vik.coordinates}} <br/>
+                {{vik.pictures}} <br/>
+            </td>
+        }
+        </tr>
+    </table>
+</div>
+</div>
+<footer>Gost page</footer>
