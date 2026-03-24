@@ -1,0 +1,113 @@
+.topnav a {
+    float: none;
+    color: #050505;
+    text-align: center;
+    padding: 14px 14px;
+    text-decoration: solid;
+    font-size: 17px;
+    background-color: rgb(24, 90, 112);
+  }
+  .topnav a.logout{
+    float: right;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  
+  .topnav a.active {
+    background-color: #989b11;
+    color: white;
+  }
+
+  .TProfile {
+    margin-top: 1%;
+    border: 1px outset rgb(0, 0, 0);
+    background-color: lightblue;
+    text-align: center;
+    padding: 3px;
+  } 
+  footer{
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+  }
+
+  .content{
+    height:100%;
+    width: 100%;
+}
+
+h4{
+    
+    background-color: rgb(184, 145, 96);
+    display: block;
+    float: none;
+    margin: auto;
+    align-self: center;
+    text-align: center;
+}
+.x{
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+    background-color: burlywood;
+    width: 50%;
+    display: block;
+    float: none;
+}
+table{
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+/*table > button{
+    float: left;
+}*/
+td{
+    /*padding: 2%;*/
+    background-color: burlywood;
+}
+th{
+    text-decoration: solid;
+    background-color: rgb(184, 145, 96);
+}
+p{
+  width:50%;
+  text-align: center;
+  margin: auto;
+}
+.mat-mdc-cell{
+  border-right: 1px solid black;
+  
+  justify-content: center;
+  text-align: center;
+}
+.mat-mdc-cell:last-child {
+  border-right: none;
+}
+.mat-column {
+  white-space: nowrap; 
+  overflow: hidden;   
+  text-overflow: ellipsis; 
+  justify-content: center;
+}
+.mat-mdc-header-cell {
+  text-align: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.mat-mdc-header-row {
+  background-color:  rgb(184, 145, 96);
+}
+
+.pics{
+  height: 50px;
+}

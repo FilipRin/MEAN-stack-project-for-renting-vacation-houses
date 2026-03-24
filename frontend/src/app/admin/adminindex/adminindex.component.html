@@ -1,0 +1,131 @@
+<div class="topnav">
+    <a class="active" routerLink="adminindex">Admin pocetna</a>
+    <a routerLink="../adminregistrations">Zahtevi za registracijom</a>
+    <a class="logout" routerLink="../adminlogin" (click)="go()">Izloguj se</a>
+</div>
+<br/>
+<br/>
+<div>
+    <h4>Vlasnici vikendica</h4> 
+    <table>  
+        <tr>
+            @for(ll of allLandlords;track ll.firstname){
+                <td>
+                    Username: <input type="text" value="{{ll.username}}" id="{{$index}}">    <button (click)="del(ll.username,$index)">Obrisi</button>  <button (click)="changeInfo(ll.username,$index,'username',ll.username)">Izmeni</button> <br/>
+                    Password: <input type="text" value="{{ll.password}}" id="{{$index}}1">    <button>Obrisi</button>  <button (click)="changeInfo(ll.password,$index,'password',ll.username)">Izmeni</button> <br/>
+                    Ime: <input type="text" value="{{ll.firstname}}" id="{{$index}}11">    <button>Obrisi</button>  <button (click)="changeInfo(ll.firstname,$index,'firstname',ll.username)">Izmeni</button> <br/>
+                    Prezime: <input type="text" value="{{ll.lastname}}" id="{{$index}}111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.lastname,$index,'lastname',ll.username)">Izmeni</button> <br/>
+                    Pol: <input type="text" value="{{ll.gender}}" id="{{$index}}1111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.gender,$index,'gender',ll.username)">Izmeni</button> <br/>
+                    Adresa: <input type="text" value="{{ll.address}}" id="{{$index}}11111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.address,$index,'address',ll.username)">Izmeni</button><br/>
+                    Telefon: <input type="text" value="{{ll.phone}}" id="{{$index}}111111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.phone,$index,'phone',ll.username)">Izmeni</button> <br/>
+                    Email: <input type="text" value="{{ll.email}}" id="{{$index}}1111111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.email,$index,'email',ll.username)">Izmeni</button> <br/>
+                    Profilna slika: <input type="text" value="{{ll.pfp}}">    <button>Obrisi</button>  <button>Izmeni</button> <br/>
+                    Kartica: <input type="text" value="{{ll.credit}}" id="{{$index}}11111111">    <button>Obrisi</button>  <button (click)="changeInfo(ll.credit,$index,'credit',ll.username)">Izmeni</button> <br/>
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+<hr/>
+<div>
+    
+    <!--
+      
+    
+      <table mat-table [dataSource]="allTourists" class="mat-elevation-z8">
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Username </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.username}}" id="{{tour.username}}" size="10"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.username,tour.username,'username',tour.username)">Izmeni</button> <br/><button (click)="ban(tour.username)">Deaktiviraj</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef> Password </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.password}}" id="{{tour.username}}!" size="10"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.password,tour.username,'password',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="firstname">
+            <th mat-header-cell *matHeaderCellDef> Ime </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.firstname}}" id="{{tour.username}}!!" size="10"><br/>  <button>Obrisi</button>  <button (click)="changeInfo2(tour.firstname,tour.username,'firstname',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> Prezime </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.lastname}}" id="{{tour.username}}!!!" size="10"><br/>  <button>Obrisi</button>  <button (click)="changeInfo2(tour.lastname,tour.username,'lastname',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef> Pol </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.gender}}" id="{{tour.username}}!!!!" size="1"><br/>  <button>Obrisi</button>  <button (click)="changeInfo2(tour.gender,tour.username,'gender',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> Adresa </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.address}}" id="{{tour.username}}!!!!!" size="18"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.address,tour.username,'address',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> Telefon </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.phone}}" id="{{tour.username}}!!!!!!" size="10"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.phone,tour.username,'phone',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.email}}" id="{{tour.username}}!!!!!!!" size="17"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.email,tour.username,'email',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        <ng-container matColumnDef="pfp">
+            <th mat-header-cell *matHeaderCellDef> Slika </th>
+            <td mat-cell *matCellDef="let tour"> <img [src]="tour.pfp" class="pics"> </td>
+        </ng-container>
+        <ng-container matColumnDef="credit">
+            <th mat-header-cell *matHeaderCellDef> Kartica </th>
+            <td mat-cell *matCellDef="let tour"> <input type="text" value="{{tour.credit}}" id="{{tour.username}}!!!!!!!!" size="15"><br/> <button>Obrisi</button>  <button (click)="changeInfo2(tour.credit,tour.username,'credit',tour.username)">Izmeni</button> </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <hr>-->
+    <table>  
+        <tr>
+            <th colspan="10">
+                TURISTI
+            </th>
+        </tr>
+        <tr>
+            <th>Korisnicko ime</th><th>Lozinka</th><th>Ime</th><th>Prezime</th><th>Pol</th><th>Adresa</th><th>Telefon</th><th>Email</th><th>Profilna slika</th><th>Kartica</th>
+        </tr>
+                        
+            @for(tour of allTourists;track tour.firstname){
+                <tr> 
+                <td>
+                    <input type="text" value="{{tour.username}}" id="{{tour.username}}2" size="15"> <br>  <button (click)="delInfo2(tour.username,tour.username,'username',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.username,tour.username,'username',tour.username)">Izmeni</button> <br/></td>
+                    <td><input type="text" value="{{tour.password}}" id="{{tour.username}}22" size="10"> <br>  <button (click)="delInfo2(tour.password,tour.username,'password',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.password,tour.username,'password',tour.username)">Izmeni</button> <br/></td>
+                    <td><input type="text" value="{{tour.firstname}}" id="{{tour.username}}222" size="10"> <br>  <button (click)="delInfo2(tour.firstname,tour.username,'firstname',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.firstname,tour.username,'firstname',tour.username)">Izmeni</button><br/></td>
+                    <td><input type="text" value="{{tour.lastname}}" id="{{tour.username}}2222" size="10"> <br>   <button (click)="delInfo2(tour.lastname,tour.username,'lastname',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.lastname,tour.username,'lastname',tour.username)">Izmeni</button><br/></td>
+                    <td><input type="text" value="{{tour.gender}}" id="{{tour.username}}22222" size="1"> <br> <button (click)="delInfo2(tour.gender,tour.username,'gender',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.gender,tour.username,'gender',tour.username)">Izmeni</button> <br/></td>
+                    <td><input type="text" value="{{tour.address}}" id="{{tour.username}}222222"> <button (click)="delInfo2(tour.address,tour.username,'address',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.address,tour.username,'address',tour.username)">Izmeni</button> <br/></td>
+                    <td><input type="text" value="{{tour.phone}}" id="{{tour.username}}2222222"> <button (click)="delInfo2(tour.phone,tour.username,'phone',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.phone,tour.username,'phone',tour.username)">Izmeni</button> <br/></td>
+                    <td><input type="text" value="{{tour.email}}" id="{{tour.username}}22222222"> <button (click)="delInfo2(tour.email,tour.username,'email',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.email,tour.username,'email',tour.username)">Izmeni</button> <br/></td>
+                    <td><img src="{{tour.pfp}}" alt="" class="pics"><br/></td>
+                    <td><input type="text" value="{{tour.credit}}" id="{{tour.username}}222222222"> <button (click)="delInfo2(tour.credit,tour.username,'credit',tour.username)">Obrisi</button>  <button (click)="changeInfo2(tour.credit,tour.username,'credit',tour.username)">Izmeni</button><br/>
+                </td>
+            </tr>
+            }
+        
+    </table>
+</div>
+<hr/>
+<div>
+    <h4>Vikendice</h4>
+    <table>  
+        <tr>
+            @for(vik of allVikendice;track vik.name){
+                <td>
+                    Naziv: <h4> {{vik.name}} </h4>
+                    Mesto: {{vik.place}} <br/>
+                    Usluge : <textarea>{{vik.services}}</textarea> <br/>
+                    Letnje cene: {{vik.prices[0]}} | Zimske cene: {{vik.prices[1]}} <br/>
+                    Telefon: {{vik.phone}} <br/>
+                    Koordinate: {{vik.coordinates}} <br/>
+                    {{vik.pictures}} <br/>
+                </td>
+            }
+        </tr>
+    </table>
+</div>
+<hr>
+
+<footer>Admin {{user}} page</footer>
