@@ -1,0 +1,13 @@
+Username: <input type="text" [(ngModel)]="username">
+<br/>
+Old password: <input type="password" [(ngModel)]="oldpassword">
+<br/>
+New password: <input type="password" [(ngModel)]="newpassword"> <button (click)="testPass()">Check password</button>
+{{messagePass}}
+<br/>
+Repeat new password: <input type="password" [(ngModel)]="repnewpassword">
+<br/>
+<button (click)="change()" [disabled]="btnDis">Change password</button>
+<span>{{message}}</span>
+<hr/>
+<a routerLink="">Login</a>
