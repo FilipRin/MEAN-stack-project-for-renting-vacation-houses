@@ -1,0 +1,29 @@
+<div class="topnav">
+    <a class="active" routerLink="tourist">Profil</a>
+    <a routerLink="tvikendice">Vikendice</a>
+    <a routerLink="treservation">Rezervacije</a>
+    <a class="logout" routerLink="../login" (click)="go()">Izloguj se</a>
+</div>
+<div class="TProfile">
+    <h3>Zdravo {{user.username}}</h3>
+    <hr/>
+    Ime : <label for="">{{user.firstname}}</label> 
+    <br/>
+    Prezime : <label for="">{{user.lastname}}</label>
+    <br/>
+    Adresa : {{user.address}}
+    <br/>
+    E-mail : {{user.email}}
+    <br/>
+    Telefon : {{user.phone}}
+    <br/>
+    Broj kartice : {{user.credit}}
+    <br/>
+    Slika : <img src="{{user.pfp}}" alt="" class="pic">
+
+</div>
+<footer>Turista {{username}} - Profile page</footer>
+
+<style>
+    
+</style>
