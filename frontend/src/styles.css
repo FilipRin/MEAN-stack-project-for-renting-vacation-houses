@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: lightgray;
+}
+header{
+    
+    position: sticky;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: bisque;
+    color: black;
+    text-align: center;
+    display: block;
+    align-items: center;
+    z-index: 100;
+  }
